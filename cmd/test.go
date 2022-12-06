@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/rmasci/verbose"
 	"github.com/spf13/pflag"
 )
@@ -11,24 +13,30 @@ func main() {
 	pflag.BoolVarP(&verb.V, "verbose", "v", false, "Verbose Mode")
 	pflag.Parse()
 	i++
-	verb.Printf("Printf %d, %s\n", i, "Hello There")
+	verb.Printf("Date Noline number. %d, %s\n", i, "Printf")
 	i++
-	verb.Println("Println", i, "Hello There")
-	verb.Dformat = verbose.TimeFormatStr("%F %T")
+	verb.Println("Date No line number", i, "Println")
+	verb = verbose.New()
+	verb.PrintLine = true
 	i++
-	verb.Printf("Printf %d, %s\n", i, "Hello There")
+	verb.Printf("line number. %d, %s\n", i, "Printf")
 	i++
-	verb.Println("Println", i, "Hello There")
-	verb.Delimeter = "|"
-	i++
-	verb.Printf("Printf %d, %s\n", i, "Hello There")
-	i++
-	verb.Println("Println", i, "Hello There")
-	verb = verbose.New("no")
-	verb.V = true
-	i++
-	verb.Printf("Printf %d, %s\n", i, "Hello There")
-	i++
-	verb.Println("Println", i, "Hello There")
+	verb.Println("line number", i, "Println")
 
+	verb = verbose.New("date")
+	verb.V = true
+	verb.PrintLine = true
+	verb.Delimeter = "|"
+	verb.Printf("Date keyworkd no line number. %d, %s\n", i, "Printf")
+	i++
+	verb.Println("date keyword no line number", i, "Println")
+	i++
+	verb = verbose.New()
+	verb.V = true
+	verb.PrintLine = true
+	verb.Printf("No Date  line number. %d, %s\n", i, "Printf")
+	i++
+	verb.Println("No Date line number", i, "Println")
+	i++
+	fmt.Println("Done")
 }

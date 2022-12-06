@@ -2,6 +2,8 @@ package verbose
 
 import (
 	"fmt"
+	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -10,18 +12,25 @@ type Verb struct {
 	V         bool
 	Dformat   string
 	Delimeter string
-	NoDate    bool
+	PrintDate bool
+	PrintLine bool
 }
 
 func New(a ...any) (verb Verb) {
 	if len(a) <= 0 {
 		verb.Dformat = "2006-01-02 15:04:05 "
-	} else if a[0] == "no" {
-		verb.NoDate = true
+		// Print Date not specified.
+	} else if a[0] == "date" {
+		verb.Dformat = "2006-01-02 15:04:05 "
+		verb.PrintDate = true
 		return verb
 	} else {
 		str := fmt.Sprintln(a...)
+		verb.PrintDate = true
 		verb.Dformat = TimeFormatStr(str)
+	}
+	if verb.Delimeter == "" {
+		verb.Delimeter = " "
 	}
 	return verb
 }
@@ -29,21 +38,48 @@ func New(a ...any) (verb Verb) {
 // Just like
 func (verb Verb) Println(a ...any) {
 	if verb.V {
-		if verb.NoDate == false {
+		if verb.Delimeter == "" {
+			verb.Delimeter = " "
+		}
+		if verb.PrintDate == true {
 			tn := time.Now().Format(verb.Dformat)
-			tn = fmt.Sprintf("%s%s", tn, verb.Delimeter)
-			a = append([]any{tn}, a...)
+			fmt.Printf("%s%s", tn, verb.Delimeter)
+		}
+		if verb.PrintLine {
+			_, file, line, ok := runtime.Caller(1)
+			if !ok {
+				file = "???"
+				line = 0
+			} else {
+				file = filepath.Base(file)
+			}
+			fmt.Printf("%s:%d%s", file, line, verb.Delimeter)
 		}
 		fmt.Println(a...)
 	}
 }
 
+// TODO: Print Line Numbers -- maybe just switch to log?
 // Just like printf, but only prints if verb.V is true -- puts date at beginning of string.
 func (verb Verb) Printf(format string, a ...any) {
 	if verb.V {
-		if verb.NoDate == false {
+		if verb.Delimeter == "" {
+			verb.Delimeter = " "
+		}
+		if verb.PrintDate == true {
 			tn := time.Now().Format(verb.Dformat)
-			format = fmt.Sprintf("%s%s %s", tn, verb.Delimeter, format)
+			fmt.Printf("%s%s", tn, verb.Delimeter)
+		}
+
+		if verb.PrintLine {
+			_, file, line, ok := runtime.Caller(1)
+			if !ok {
+				file = "???"
+				line = 0
+			} else {
+				file = filepath.Base(file)
+			}
+			fmt.Printf("%s:%d%s", file, line, verb.Delimeter)
 		}
 		fmt.Printf(format, a...)
 	}
