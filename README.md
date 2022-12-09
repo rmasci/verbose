@@ -10,7 +10,7 @@ import (
     "flag"
     "github.com/rmasci/verbose"
  )
-    // THe date string is formatted the same as using the Linux date Command
+    // The date string is formatted the same as using the Linux date Command
     verb := verbose.New("%A %B %Y, %I:%M:%S %P %Z")
 	flagset:=pflag.FlagSet
 	flagset.BoolVarP(&verb.V, "verbose", "v", false, "Verbose Mode")
