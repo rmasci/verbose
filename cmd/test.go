@@ -11,8 +11,10 @@ import (
 func main() {
 	i := 0
 	verb := verbose.New("%A %B %Y, %I:%M:%S %P %Z")
-	pflag.BoolVarP(&verb.V, "verbose", "v", false, "Verbose Mode")
-	pflag.Parse()
+	flagset := pflag.FlagSet
+	flagset.BoolVarP(&verb.V, "verbose", "v", false, "Verbose Mode")
+	flagset.MarkHidden(verb)
+	flagset.Parse(os.Args[1:])
 	i++
 	verb.Printf("Date Noline number. %d, %s\n", i, "Printf")
 	i++
