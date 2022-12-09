@@ -44,7 +44,7 @@ func New(a ...any) (v Verb) {
 	if len(a) <= 0 {
 		v.Dformat = "2006-01-02 15:04:05 "
 		// Print Date not specified.
-	} else if a[0] == "date" {
+	} else if a[0] == "default" {
 		v.Dformat = "2006-01-02 15:04:05 "
 		v.PrintDate = true
 		return v
