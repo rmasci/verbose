@@ -1,7 +1,7 @@
 # Verbose
 
 Allows you to easily add in 'debugging' statements to your code. You don't have to remove them once you finalize your code.
-
+This also prints out the line number where the verb.Print was performed. This helps when you're looking to find things that are not an error such as a typo in fmt.Print command etc.
 ```cgo
 package main
 
