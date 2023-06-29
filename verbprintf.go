@@ -23,7 +23,7 @@ import (
 )
 
 // Just like fmt.Fprint -- only prints when verbose.V is true.  Only prints the date and line number if PrintDate and PrintLine are true
-func (verb Verb) Fprint(w io.Writer, a ...any) {
+func (verb *Verb) Fprint(w io.Writer, a ...any) {
 	if verb.V {
 		if verb.Delimeter == "" {
 			verb.Delimeter = " "
@@ -51,7 +51,7 @@ func MyTest() string {
 }
 
 // Just like fmt.Fprintln -- only prints when verbose.V is true. Only prints the date and line number if PrintDate and PrintLine are true
-func (verb Verb) Fprintln(w io.Writer, a ...any) {
+func (verb *Verb) Fprintln(w io.Writer, a ...any) {
 	if verb.V {
 		if verb.Delimeter == "" {
 			verb.Delimeter = " "
@@ -75,7 +75,7 @@ func (verb Verb) Fprintln(w io.Writer, a ...any) {
 }
 
 // Just like fmt.Fprintf, but only prints if verb.V is true. Only prints the date and line number if PrintDate and PrintLine are true
-func (verb Verb) Fprintf(w io.Writer, format string, a ...any) {
+func (verb *Verb) Fprintf(w io.Writer, format string, a ...any) {
 	if verb.V {
 		if verb.Delimeter == "" {
 			verb.Delimeter = " "

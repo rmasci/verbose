@@ -1,0 +1,12 @@
+2023-06-29 09:49:54 |test.go:92|This is to a file *os.File
+2023-06-29 09:49:54 |test.go:93|This is to a file using println 13
+2023-06-29 09:49:54 |test.go:94|This is to a file using print 13
+2023-06-29 09:50:28 |test.go:92|This is to a file *os.File
+2023-06-29 09:50:28 |test.go:93|This is to a file using println 13
+2023-06-29 09:50:28 |test.go:94|This is to a file using print 13
+2023-06-29 09:51:11 |test.go:92|This is to a file *os.File
+2023-06-29 09:51:11 |test.go:93|This is to a file using println 13
+2023-06-29 09:51:11 |test.go:94|This is to a file using print 13
+2023-06-29 09:55:49 |test.go:77|This is to a file *os.File
+2023-06-29 09:55:49 |test.go:78|This is to a file using println 13
+2023-06-29 09:55:49 |test.go:79|This is to a file using print 13
