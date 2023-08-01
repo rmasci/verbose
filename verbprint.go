@@ -42,19 +42,18 @@ type Verb struct {
 	PrintDate bool
 	// If set to false, line number will not be printed
 	PrintLine bool
-	// Set where to write the print statements. By default it's stdout, but you can change it to stderr, or to a file.
-	Out io.Writer `default0:os.Stdout`
+	// Set where to write the print statements. By default it's stderr, but you can change it to stdout, or to a file.
+	Out io.Writer `default0:os.Stderr`
 }
 
 // Returns a type Verb and sets some defaults.
 // If nothing passed verbose.New(), no date is used
 // if verbose.New("default") use a default date string.
 // Date string can be customized by either setting Dformat using go date format string or by passing a linux date compatible string to verbose.New.
-func New(a ...any) (v Verb) {
-
+func New(w io.Writer, a ...any) (v Verb) {
 	if len(a) <= 0 {
 		v.Dformat = "2006-01-02 15:04:05 "
-	} else if a[0] == "default" {
+	} else if a[0] == "default" || a[0] == "" {
 		v.Dformat = "2006-01-02 15:04:05 "
 		v.PrintDate = true
 		return v
@@ -63,19 +62,16 @@ func New(a ...any) (v Verb) {
 		v.PrintDate = true
 		v.Dformat = TimeFormatStr(str)
 	}
-	if v.Delimeter == "" {
-		v.Delimeter = " "
-	}
-	v.Out = os.Stdout
+
+	v.Delimeter = " "
+	v.Out = w
+
 	return v
 }
 
 // Just like fmt.Print -- only prints when verbose.V is true. Only prints the date and line number if PrintDate and PrintLine are true
 func (v *Verb) Print(a ...any) {
 	if v.V {
-		if v.Out == nil {
-			v.Out = os.Stdout
-		}
 		if v.Delimeter == "" {
 			v.Delimeter = " "
 		}

@@ -10,3 +10,69 @@
 2023-06-29 09:55:49 |test.go:77|This is to a file *os.File
 2023-06-29 09:55:49 |test.go:78|This is to a file using println 13
 2023-06-29 09:55:49 |test.go:79|This is to a file using print 13
+2023-07-20 09:30:47 |test.go:77|This is to a file *os.File
+2023-07-20 09:30:47 |test.go:78|This is to a file using println 13
+2023-07-20 09:30:47 |test.go:79|This is to a file using print 13
+2023-07-20 09:34:49 |test.go:78|This is to a file *os.File
+2023-07-20 09:34:49 |test.go:79|This is to a file using println 13
+2023-07-20 09:34:49 |test.go:80|This is to a file using print 13
+2023-07-20 09:36:05 |test.go:78|This is to a file *os.File
+2023-07-20 09:36:05 |test.go:79|This is to a file using println 13
+2023-07-20 09:36:05 |test.go:80|This is to a file using print 13
+2023-07-20 09:39:45 |test.go:78|This is to a file *os.File
+2023-07-20 09:39:45 |test.go:79|This is to a file using println 13
+2023-07-20 09:39:45 |test.go:80|This is to a file using print 13
+2023-07-20 09:40:06 |test.go:78|This is to a file *os.File
+2023-07-20 09:40:06 |test.go:79|This is to a file using println 13
+2023-07-20 09:40:06 |test.go:80|This is to a file using print 13
+2023-07-20 09:40:47 |test.go:78|This is to a file *os.File
+2023-07-20 09:40:47 |test.go:79|This is to a file using println 13
+2023-07-20 09:40:47 |test.go:80|This is to a file using print 13
+2023-07-20 09:41:28 |test.go:78|This is to a file *os.File
+2023-07-20 09:41:28 |test.go:79|This is to a file using println 13
+2023-07-20 09:41:28 |test.go:80|This is to a file using print 13
+2023-07-20 09:42:14 |test.go:78|This is to a file *os.File
+2023-07-20 09:42:14 |test.go:79|This is to a file using println 13
+2023-07-20 09:42:14 |test.go:80|This is to a file using print 13
+2023-07-20 09:43:53 |test.go:78|This is to a file *os.File
+2023-07-20 09:43:53 |test.go:79|This is to a file using println 13
+2023-07-20 09:43:53 |test.go:80|This is to a file using print 13
+2023-07-20 09:44:32 |test.go:78|This is to a file *os.File
+2023-07-20 09:44:32 |test.go:79|This is to a file using println 13
+2023-07-20 09:44:32 |test.go:80|This is to a file using print 13
+2023-07-20 21:49:15 |test.go:78|This is to a file *os.File
+2023-07-20 21:49:15 |test.go:79|This is to a file using println 13
+2023-07-20 21:49:15 |test.go:80|This is to a file using print 13
+2023-07-20 21:50:36 |test.go:79|This is to a file *os.File
+2023-07-20 21:50:36 |test.go:80|This is to a file using println 13
+2023-07-20 21:50:36 |test.go:81|This is to a file using print 13
+2023-07-20 21:59:46 |test.go:80|This is to a file *os.File
+2023-07-20 21:59:46 |test.go:81|This is to a file using println 13
+2023-07-20 21:59:46 |test.go:82|This is to a file using print 13
+2023-07-20 22:00:11 |test.go:81|This is to a file *os.File
+2023-07-20 22:00:11 |test.go:82|This is to a file using println 13
+2023-07-20 22:00:11 |test.go:83|This is to a file using print 13
+2023-07-20 22:00:24 |test.go:81|This is to a file *os.File
+2023-07-20 22:00:24 |test.go:82|This is to a file using println 13
+2023-07-20 22:00:24 |test.go:83|This is to a file using print 13
+2023-07-20 22:00:43 |test.go:81|This is to a file *os.File
+2023-07-20 22:00:43 |test.go:82|This is to a file using println 13
+2023-07-20 22:00:43 |test.go:83|This is to a file using print 13
+2023-07-20 22:01:11 |test.go:82|This is to a file *os.File
+2023-07-20 22:01:11 |test.go:83|This is to a file using println 13
+2023-07-20 22:01:11 |test.go:84|This is to a file using print 13
+This is to a file *os.File
+This is to a file using println 13
+This is to a file using print 13
+error: This should print and not exit -- This is an error
+	file: /Users/rx7322/go/src/github.com/rmasci/verbose/cmd/test.go line: 95
+	file: /usr/local/go/src/runtime/proc.go line: 250
+error: error and exit! -- Error and exit program
+	file: /Users/rx7322/go/src/github.com/rmasci/verbose/iferr.go line: 43
+	file: /Users/rx7322/go/src/github.com/rmasci/verbose/cmd/test.go line: 101
+error: This should print and not exit -- This is an error
+	file: /Users/rx7322/go/src/github.com/rmasci/verbose/cmd/test.go line: 101
+	file: /usr/local/go/src/runtime/proc.go line: 250
+error: error and exit! -- Error and exit program
+	file: /Users/rx7322/go/src/github.com/rmasci/verbose/iferr.go line: 43
+	file: /Users/rx7322/go/src/github.com/rmasci/verbose/cmd/test.go line: 107
