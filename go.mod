@@ -8,6 +8,10 @@ require (
 )
 
 require (
-	golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 // indirect
-	golang.org/x/term v0.0.0-20191110171634-ad39bd3f0407 // indirect
+	github.com/briandowns/spinner v1.23.0 // indirect
+	github.com/fatih/color v1.7.0 // indirect
+	github.com/mattn/go-colorable v0.1.2 // indirect
+	github.com/mattn/go-isatty v0.0.8 // indirect
+	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
+	golang.org/x/term v0.1.0 // indirect
 )

@@ -23,6 +23,7 @@
 package verbose
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -145,5 +146,20 @@ func (v *Verb) Printf(format string, a ...any) {
 			fmt.Fprintf(v.Out, "%s:%d%s", file, line, v.Delimeter)
 		}
 		fmt.Fprintf(v.Out, format, a...)
+	}
+}
+
+// Prints a interface (struct) in indented JSON. Only prints if verb.V is true  Line numbers are not printed.
+func (v *Verb) Printj(data interface{}) {
+	if v.PrintDate == true {
+		fmt.Println(time.Now().Format(v.Dformat))
+	}
+	if v.V {
+		jsonData, err := json.MarshalIndent(data, "", "  ")
+		if err != nil {
+			fmt.Fprintf(v.Out, "Error marshaling data: %v\n", err)
+			return
+		}
+		fmt.Fprintln(v.Out, string(jsonData))
 	}
 }
