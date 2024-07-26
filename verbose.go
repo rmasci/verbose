@@ -40,6 +40,8 @@ type Verb struct {
 	PrintLine bool
 	// Set where to write the print statements. By default it's stderr, but you can change it to stdout, or to a file.
 	Out io.Writer `default0:os.Stderr`
+	// Quit is a verbose channel
+	Quit chan bool
 }
 
 // Returns a type Verb and sets some defaults.
@@ -61,6 +63,6 @@ func New(w io.Writer, a ...any) (v Verb) {
 
 	v.Delimeter = " "
 	v.Out = w
-
+	v.Quit = make(chan bool)
 	return v
 }

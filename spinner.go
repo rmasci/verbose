@@ -37,8 +37,13 @@ type Spinner struct {
 	Chars []string
 }
 
-// for compatibility...
-func (v *Verb) Spin(quit chan bool, I ...int) {
+// make it simple to create a spinner.
+//
+//	go verb.Spin()
+//	time.Sleep(5 * time.Second)
+//	verb.Quit <- true
+//	fmt.Println("done")
+func (v *Verb) Spin(I ...int) {
 	if len(I) == 0 {
 		I = append(I, 0)
 	}
@@ -46,18 +51,11 @@ func (v *Verb) Spin(quit chan bool, I ...int) {
 		I[0] = 0
 	}
 	spnr := NewSpinner("Working:", "stderr", I[0])
-	spnr.Quit = quit
-	spnr.Start()
-	//for {
-	//	select {
-	//	case <-quit:
-	//		spnr.Clear()
-	//		return
-	//	default:
-	//		spnr.Spin()
-	//	}
-	//	time.Sleep(250 * time.Millisecond)
-	//}
+	spnr.Speed = 7
+	go spnr.Start()
+	quit := <-v.Quit
+	fmt.Println("Done")
+	spnr.Quit <- quit
 }
 
 func (s *Spinner) Start() {

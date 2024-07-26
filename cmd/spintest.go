@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	for i := range 21 {
+	x := 1
+	for i := range x {
 		sp := verbose.NewSpinner("Sleep 5:", "stderr", i)
 		sp.Speed = 10
 		fmt.Printf("%d - %s\n", i, strings.Join(sp.Chars, " "))
@@ -20,9 +21,9 @@ func main() {
 	fmt.Println("Verbose")
 	var verb verbose.Verb
 	verb.V = true
-	quit := make(chan bool)
-	go verb.Spin(quit)
+	go verb.Spin()
 	time.Sleep(5 * time.Second)
-	quit <- true
+	fmt.Println("Done")
+	verb.Quit <- true
 	fmt.Println("done")
 }

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59681960-a8c3-4d75-bfb3-231d35d080f9" name="Changes" comment="" />
+    <list default="true" id="59681960-a8c3-4d75-bfb3-231d35d080f9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/spintest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/spintest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spinner.go" beforeDir="false" afterPath="$PROJECT_DIR$/spinner.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verbose.go" beforeDir="false" afterPath="$PROJECT_DIR$/verbose.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +49,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.15026.17" />
+        <option value="bundled-gosdk-467a64f6063b-ee0e143f3e2b-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.11799.228" />
       </set>
     </attachedChunks>
   </component>
